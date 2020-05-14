@@ -177,7 +177,7 @@ let g:airline_theme='dracula'
 nmap <F12> :TagbarToggle<CR>
 
 " YCM config 
-let g:ycm_path_to_python_interpreter='/home/jin_zhou/anaconda3/envs/dev3.7/bin/python'
+let g:ycm_path_to_python_interpreter='/usr/bin/python3'
 "let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_seed_identifiers_with_syntax=1
@@ -199,11 +199,12 @@ let g:ycm_autoclose_preview_window_after_completion=1       " 智能关闭自动
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif         " 离开插入模式后自动关闭预览窗口
 
 " 补全菜单中各项之间进行切换和选取：默认使用tab  s-tab进行上下切换，使用空格选取。可进行自定义设置：
-let g:ycm_key_list_select_completion=['<C-j>']
+let g:ycm_key_list_select_completion=['<C-j>', '<tab>']
 "let g:ycm_key_list_select_completion = ['<Down>']      " 通过上下键在补全菜单中进行切换
-let g:ycm_key_list_previous_completion=['<C-k>']
+let g:ycm_key_list_previous_completion=['<C-k>', '<s-tab>']
 "let g:ycm_key_list_previous_completion = ['<Up>']
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"    " 回车即选中补全菜单中的当前项
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " 开启各种补全引擎
 let g:ycm_collect_identifiers_from_tags_files= 1         " 开启 YCM 基于标签引擎
@@ -212,6 +213,8 @@ let g:ycm_seed_identifiers_with_syntax=1                " 开启 YCM 基于语�
 let g:ycm_complete_in_comments = 1              " 在注释输入中也能补全
 let g:ycm_complete_in_strings = 1               " 在字符串输入中也能补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 0 " 注释和字符串中的文字也会被收入补全
+let g:ycm_key_invoke_completion = '<c-x>'
+
 " 重映射快捷键
 "上下左右键的行为 会显示其他信息,inoremap由i 插入模式和noremap不重映射组成，只映射一层，不会映射到映射的映射
 "inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
@@ -226,7 +229,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 0 " 注释和字符串
 nnoremap <leader>jc    :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>jd    :YcmCompleter GoToDefinition<CR>
 "nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR> " 跳转到定义处
-let g:ycm_confirm_extra_conf=0                " 关闭加载.ycm_extra_conf.py确认提示
+let g:ycm_confirm_extra_conf=1                " 关闭加载.ycm_extra_conf.py确认提示
 
 " config nerdcommenter
 " Add spaces after comment delimiters by default
@@ -317,6 +320,7 @@ let g:user_emmet_settings = {
 " Gtags
 
 let $GTAGSLABEL='native-pygments'
+"let $GTAGSLABEL='native'
 let $GTAGSCONF='/home/jin_zhou/.globalrc'
 
 let g:gutentags_file_list_command = 'ag -l'
@@ -363,7 +367,7 @@ noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
 
 " UltiSnips
 
-" let g:UltiSnipsExpandTrigger="<\>"
+let g:UltiSnipsExpandTrigger="<C-l>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 

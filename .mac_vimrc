@@ -177,8 +177,8 @@ let g:airline_theme='dracula'
 " tagbar config 
 nmap <F10> :TagbarToggle<CR>
 " YCM config
-let g:ycm_python_binary_path = 'python3'
-let g:ycm_path_to_python_interpreter='/usr/local/bin/python3'
+let g:ycm_python_binary_path = 'python'
+let g:ycm_path_to_python_interpreter='/Users/jin_zhou/.pyenv/shims/python'
 " let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_seed_identifiers_with_syntax=1
@@ -314,7 +314,8 @@ set <M-n>=n " Map <BS> to delete brackets, quotes in pair
 " Gtags
 
 let $GTAGSLABEL='native-pygments'
-let $GTAGSCONF='/Users/jogin/.globalrc'
+" let $GTAGSLABEL='native'
+let $GTAGSCONF='/Users/jin_zhou/.globalrc'
 
 let g:gutentags_file_list_command = 'ag -l'
 let g:gutentags_trace = 0
@@ -363,8 +364,9 @@ noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
 
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<s-tab>"
+let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 let g:UltiSnipsEditSplit="vertical"
 
