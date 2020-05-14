@@ -199,9 +199,9 @@ let g:ycm_autoclose_preview_window_after_completion=1       " 智能关闭自动
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif         " 离开插入模式后自动关闭预览窗口
 
 " 补全菜单中各项之间进行切换和选取：默认使用tab  s-tab进行上下切换，使用空格选取。可进行自定义设置：
-"let g:ycm_key_list_select_completion=['<c-n>']
+let g:ycm_key_list_select_completion=['<C-j>']
 "let g:ycm_key_list_select_completion = ['<Down>']      " 通过上下键在补全菜单中进行切换
-"let g:ycm_key_list_previous_completion=['<c-p>']
+let g:ycm_key_list_previous_completion=['<C-k>']
 "let g:ycm_key_list_previous_completion = ['<Up>']
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"    " 回车即选中补全菜单中的当前项
 
@@ -363,9 +363,9 @@ noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
 
 " UltiSnips
 
-let g:UltiSnipsExpandTrigger="<\>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<\>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 let g:UltiSnipsEditSplit="vertical"
 
