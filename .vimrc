@@ -9,7 +9,7 @@ set nocompatible	" Use Vim defaults instead of 100% vi compatibility
 set backspace=2		" more powerful backspacing
 set term=screen-256color
 setlocal wrap
-colorscheme dracula
+colorscheme dracula 
 set wrap
 set textwidth=0
 set formatoptions+=t
@@ -105,6 +105,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'will133/vim-dirdiff'
+Plugin 'mhinz/vim-startify'
 call vundle#end()
 filetype plugin indent on
 let mapleader = ","
@@ -139,7 +141,9 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP :pwd'
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o    " Linux/MacOSX
+set wildignore+=*.so,*.swp,*.zip,*.o    " Linux/MacOSX
+set wildmenu
+set wildmode=longest:full,full
 
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
@@ -175,9 +179,10 @@ let g:airline_theme='dracula'
 
 " tagbar config 
 nmap <F12> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
 
 " YCM config 
-let g:ycm_path_to_python_interpreter='/usr/bin/python3'
+let g:ycm_path_to_python_interpreter='/home/jin_zhou/anaconda3/bin/python3'
 "let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_seed_identifiers_with_syntax=1
@@ -256,6 +261,8 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
+inoremap <leader>ci <SPACE><BS><ESC>:call NERDComment('i', 'insert')<CR>
+
 " Config for auto-pairs
 " let g:AutoPairsShortcutJump = '<Leader>'
 " let g:AutoPairsShortcutFastWrap = '<Leader>'
@@ -320,11 +327,11 @@ let g:user_emmet_settings = {
 " Gtags
 
 let $GTAGSLABEL='native-pygments'
-"let $GTAGSLABEL='native'
+" let $GTAGSLABEL='native'
 let $GTAGSCONF='/home/jin_zhou/.globalrc'
 
 let g:gutentags_file_list_command = 'ag -l'
-" let g:gutentags_trace = 1
+let g:gutentags_trace = 0
 " gutentags 搜索工程目录的标志，当前文件路径向上递归直到碰到这些文件/目录名
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 
@@ -435,3 +442,6 @@ augroup DragQuickfixWindowDown
   autocmd!
   autocmd FileType qf wincmd J
 augroup end
+
+" Paste Mode
+set pastetoggle=<F9>
