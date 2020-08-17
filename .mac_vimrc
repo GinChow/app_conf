@@ -112,6 +112,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
+Plugin 'will133/vim-dirdiff'
+Plugin 'iamcco/markdown-preview.nvim'
 call vundle#end()
 filetype plugin indent on
 
@@ -144,7 +146,9 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP :pwd'
 
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.git/*,*/.hg/*,*/.svn/*
+set wildignore+=*.so,*.swp,*.zip,*/.git/*,*/.hg/*,*/.svn/*
+set wildmenu
+set wildmode=longest:full,full
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
@@ -259,6 +263,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
+inoremap <leader>ci <SPACE><BS><ESC>:call NERDComment('i', 'insert')<CR>
 
 " Emmet-vim config
 let g:user_emmet_leader_key='<Leader>z'
@@ -303,6 +308,11 @@ let g:user_emmet_settings = {
 
 " geeknote config
 let g:GeeknoteFormat="markdown"
+
+
+" MarkDown preview
+" let vim_markdown_preview_hotkey='<C-m>'
+" let vim_markdown_preview_browser='Google Chrome'
 
 " Config for auto-pairs
 " let g:AutoPairsShortcutJump = '<Leader>'
