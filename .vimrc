@@ -65,6 +65,7 @@ endif
 autocmd FileType c setlocal shiftwidth=2 tabstop=2 
 autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 
 autocmd FileType h setlocal shiftwidth=2 tabstop=2 
+au BufRead,BufNewFile *.abs set filetype=abs
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -107,6 +108,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'will133/vim-dirdiff'
 Plugin 'mhinz/vim-startify'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-scripts/LargeFile'
 call vundle#end()
 filetype plugin indent on
 let mapleader = ","
@@ -386,6 +389,16 @@ let g:UltiSnipsEditSplit="vertical"
 nmap <C-s> :MarkdownPreview<cr>
 nmap <M-s> :MarkdownPreviewStop<cr>
 nmap <C-p> :MarkdownPreviewToggle<cr>
+
+
+" Config indentline
+let g:indentLine_char = '┆'
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 1
+
+" Config LargeFile
+let g:LargeFile = 10
 
 
 "Shortcut key
